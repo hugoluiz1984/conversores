@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import React, {useState} from 'react';
 
  function ConverterText() {
@@ -9,79 +9,131 @@ import React, {useState} from 'react';
   const pattern = /^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
   
 
-  console.log(text)
+  //console.log(text)
 
   function capitalize() {
     let newStr = []
     if (text !=''){
-      const arr = text.split(' ')
-      console.log(arr)
-      for (let i = 0; i < arr.length; i++){// verifica todas as palavras
+      const letras = text.split('\n');
+      let palavras = letras.join(' ');
+      //console.log(palavras)
+      const arr = letras
 
+      for (let i = 0; i < arr.length; i++){// verifica todas as palavras
+        if(arr[i].charAt(0)=='\n'){newStr.push('\n')}
         if(pattern.test(arr[i].charAt(0))){ //verificar o primeiro caractere se é número ou simbolo 
-          newStr.push(arr[i].charAt(0)+arr[i].substring(1).toLowerCase())
+          newStr.push(arr[i].charAt(0)+arr[i].substring(1).toLowerCase());
         } else { //verificar o primeiro caractere e altera o primeiro para maiúsculo
-          newStr.push(arr[i].charAt(0).toUpperCase()+arr[i].substring(1).toLowerCase())
+          newStr.push(arr[i].charAt(0).toUpperCase()+arr[i].substring(1).toLowerCase());
         }
       }
 
-      setText(newStr.join(' '))
+      setText(newStr.join(' '));
 
     }else {
-      alert('Favor entrar com o texto')
+      alert('Favor entrar com o texto');
     }
   }
 
   function toTitleCase() {
-    let newStr = []
+    let newStr = [];
     if (text !=''){
-      const arr = text.split(' ')
+      const arr = text.split(' ');
 
       for (let i = 0; i < arr.length; i++){// verifica todas as palavras
 
         if(pattern.test(arr[i].charAt(0))){ //verificar o primeiro caractere se é número ou simbolo 
-          newStr.push(arr[i].charAt(0)+arr[i].substring(1).toLowerCase())
+          newStr.push(arr[i].charAt(0)+arr[i].substring(1).toLowerCase());
         } else { //verificar o primeiro caractere e altera o primeiro para maiúsculo
-          newStr.push(arr[i].charAt(0).toUpperCase()+arr[i].substring(1).toLowerCase())
+          newStr.push(arr[i].charAt(0).toUpperCase()+arr[i].substring(1).toLowerCase());
         }
       }
 
-      setText(newStr.join(' '))
+      setText(newStr.join(' '));
 
     }else {
-      alert('Favor entrar com o texto')
+      alert('Favor entrar com o texto');
     }
   }
 
   function toUpper() {
 
     if (text !=''){
-      const arr = text.split(' ')
-      console.log(arr.length)
+      const arr = text.split(' ');
+      console.log(arr.length);
       let newStr = []
       
-      let letra = ''
+      let letra = '';
       for (let i = 0; i < arr.length; i++){// verifica todas as palavras
-        let newStrSolo = []
+        let newStrSolo = [];
         for (let j = 0; j < arr[i].length; j++){
-          //console.log(pattern.test(arr[i].charAt(j)))
+          //console.log(pattern.test(arr[i].charAt(j)));
           if(pattern.test(arr[i].charAt(j))){
-            newStrSolo.push(arr[i].charAt(j))
+            newStrSolo.push(arr[i].charAt(j));
           }else{
-            letra = arr[i].charAt(j)
-            newStrSolo.push(arr[i].charAt(j).toUpperCase())
-            //console.log(arr[i].charAt(j).toUpperCase())
+            letra = arr[i].charAt(j);
+            newStrSolo.push(arr[i].charAt(j).toUpperCase());
+            //console.log(arr[i].charAt(j).toUpperCase());
           }
         }
-        newStr.push(newStrSolo.join(''))
-        console.log(newStr)
+        newStr.push(newStrSolo.join(''));
+        console.log(newStr);
       }
-      setText(newStr.join(' '))
+      setText(newStr.join(' '));
       
     }else {
-      alert('Favor entrar com o texto')
+      alert('Favor entrar com o texto');
     }
   } 
+  function toLower() {
+
+    if (text !=''){
+      const arr = text.split(' ');
+      console.log(arr.length);
+      let newStr = [];
+      
+      let letra = '';
+      for (let i = 0; i < arr.length; i++){// verifica todas as palavras
+        let newStrSolo = [];
+        for (let j = 0; j < arr[i].length; j++){
+          //console.log(pattern.test(arr[i].charAt(j)));
+          if(pattern.test(arr[i].charAt(j))){
+            newStrSolo.push(arr[i].charAt(j));
+          }else{
+            letra = arr[i].charAt(j);
+            newStrSolo.push(arr[i].charAt(j).toLowerCase());
+            //console.log(arr[i].charAt(j).toUpperCase());
+          }
+        }
+        newStr.push(newStrSolo.join(''));
+        console.log(newStr);
+      }
+      setText(newStr.join(' '));
+      
+    }else {
+      alert('Favor entrar com o texto');
+    }
+  }
+  function alternating() {
+
+    if (text !=''){
+      //const arr = text.split(' ');
+      //console.log(arr.length);
+      let newStr = [];
+      
+      let letra = '';
+      for (let i = 0; i < text.length; i++){// verifica todas as palavras
+        if(i%2===1){
+          letra=letra+(text.charAt(i).toUpperCase())
+        }else{
+          letra=letra+(text.charAt(i).toLowerCase())
+        }
+      }
+      setText(letra); 
+    }else {
+      alert('Favor entrar com o texto');
+    }
+  }
 
   return (
     <div className='container'>
@@ -98,16 +150,17 @@ import React, {useState} from 'react';
             className='form-control textarea' 
             placeholder="Leave a comment here" 
             id="floatingTextarea" 
-            rows="5"
             type="text" 
             value={text}
             onChange={e => setText(e.target.value)}
             />
             <label className="floatingTextarea">Digite o seu Texto aqui</label>
-            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toTitleCase}>Sentence case</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={capitalize}>Sentence case</button>
             <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toUpper}>UPPER CASE</button>
-            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={capitalize}>Capitalize</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toLower}>lower case</button>
             <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toTitleCase} >Title Case</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={alternating} >aLtErNaTiNg cAsE</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toTitleCase} >InVeRsE CaSe</button>
         </form>
       </main>
     </div>
