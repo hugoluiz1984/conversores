@@ -135,6 +135,27 @@ import React, {useState} from 'react';
     }
   }
 
+  function inverse() {
+
+    if (text !=''){
+      //const arr = text.split(' ');
+      //console.log(arr.length);
+      let newStr = [];
+      
+      let letra = '';
+      for (let i = 0; i < text.length; i++){// verifica todas as palavras
+        if(/[A-Z]/.test(text.charAt(i))){
+          letra=letra+(text.charAt(i).toLowerCase())
+        }else {
+          letra=letra+(text.charAt(i).toUpperCase())
+        }
+      }
+      setText(letra); 
+    }else {
+      alert('Favor entrar com o texto');
+    }
+  }
+
   return (
     <div className='container'>
       <Head>
@@ -160,7 +181,7 @@ import React, {useState} from 'react';
             <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toLower}>lower case</button>
             <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toTitleCase} >Title Case</button>
             <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={alternating} >aLtErNaTiNg cAsE</button>
-            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toTitleCase} >InVeRsE CaSe</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={inverse} >InVeRsE CaSe</button>
         </form>
       </main>
     </div>
