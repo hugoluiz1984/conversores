@@ -144,7 +144,7 @@ import React, {useState} from 'react';
       
       let letra = '';
       for (let i = 0; i < text.length; i++){// verifica todas as palavras
-        if(/[A-Z]/.test(text.charAt(i))){
+        if(/[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÜÇÑ]/.test(text.charAt(i))){
           letra=letra+(text.charAt(i).toLowerCase())
         }else {
           letra=letra+(text.charAt(i).toUpperCase())
