@@ -164,8 +164,8 @@ import React, {useState} from 'react';
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className='main'>
-        <h3>Accidentally left the caps lock on and typed something, but can not be bothered to start again and retype it all?</h3>
-        <p>Simply enter your text and choose the case you want to convert it to.</p>
+        <h3>Acidentalmente deixou o Caps Lock do teclado ligado e escreveu algo, e não quer escrever tudo de novo?</h3>
+        <p>Insira o seu texto e escolha para que tipo de formato deseja converter.</p>
         <form className='form-floating ms-1'>
             <textarea 
             className='form-control textarea' 
@@ -176,12 +176,12 @@ import React, {useState} from 'react';
             onChange={e => setText(e.target.value)}
             />
             <label className="floatingTextarea">Digite o seu Texto aqui</label>
-            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={capitalize}>Sentence case</button>
-            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toUpper}>UPPER CASE</button>
-            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toLower}>lower case</button>
-            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toTitleCase} >Title Case</button>
-            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={alternating} >aLtErNaTiNg cAsE</button>
-            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={inverse} >InVeRsE CaSe</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={capitalize}>Formato de frase</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toUpper}>MAIÚSCULAS</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toLower}>minúsculas</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={toTitleCase} >Formato Maiúsculas</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={alternating} >fOrMaTo aLtErNaDo</button>
+            <button type="button" className="btn btn-outline-primary mt-2 me-2 " onClick={inverse} >Inverter</button>
         </form>
       </main>
     </div>

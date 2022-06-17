@@ -19,18 +19,19 @@ export default function Home() {
             <p>Simples conversor</p>
             <ul className="icon-list ps-0">
               <li className="d-flex align-items-start mb-1"><a href="./Texto">Conversores de texto</a></li>
-              <li className="text-muted d-flex align-items-start mb-1">Conversores de números (coming soon!)</li>
+              <li className="d-flex align-items-start mb-1"><a href="./Unidades">Conversores de unidades de Comprimento</a></li>
+              <li className="text-muted d-flex align-items-start mb-1">Conversores de unidades de Volume (coming soon!)</li>
             </ul>
           </div>
 
           <div className="col-md-6">
-            <h2>Guides</h2>
-            <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.</p>
+            <h2></h2>
+            <p></p>
             <ul className="icon-list ps-0">
-              <li className="d-flex align-items-start mb-1"><p>Bootstrap quick start guide</p></li>
-              <li className="d-flex align-items-start mb-1"><p>Bootstrap Webpack guide</p></li>
-              <li className="d-flex align-items-start mb-1"><p>Bootstrap Parcel guide</p></li>
-              <li className="d-flex align-items-start mb-1"><p>Contributing to Bootstrap</p></li>
+              <li className="d-flex align-items-start mb-1"><p></p></li>
+              <li className="d-flex align-items-start mb-1"><p></p></li>
+              <li className="d-flex align-items-start mb-1"><p></p></li>
+              <li className="d-flex align-items-start mb-1"><p></p></li>
             </ul>
           </div>
         </div>
