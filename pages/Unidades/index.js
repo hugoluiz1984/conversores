@@ -20,9 +20,9 @@ export default function Numeros() {
       </Head>
         <div>
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <button type="button" class="btn btn-danger" onClick={()=>{tipo(0)}}>Comprimento</button>
-            <button type="button" class="btn btn-success" onClick={()=>{tipo(1)}}>Volume</button>
-            <button type="button" class="btn btn-primary" onClick={()=>{tipo(2)}}>Temperatura</button>
+            <button type="button" class={type===0?'bnt border rounded-start btn-primary':"btn rounded-start border"} onClick={()=>{tipo(0)}}>Comprimento</button>
+            <button type="button" class={type===1?'bnt border btn-primary':"btn border"} onClick={()=>{tipo(1)}}>Volume</button>
+            <button type="button" class={type===2?'bnt border rounded-end btn-primary':"btn rounded-end border"} onClick={()=>{tipo(2)}}>Temperatura</button>
           </div>
           {
             type===0&&<Comprimento />
