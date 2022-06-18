@@ -1,11 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
 import Comprimento from '../../components/Comprimento'
+import Volume from '../../components/Volume';
+import Temperatura from '../../components/Temperatura';
 
 export default function Numeros() {
 
+  const [type, setType]= useState(0);
 
-
+  function tipo (valor){
+    setType(valor);
+  }
   return (
     <div className='container'>
       <Head>
@@ -15,10 +20,19 @@ export default function Numeros() {
       </Head>
         <div>
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-            <button type="button" class="btn btn-danger">Comprimento</button>
-            <button type="button" class="btn btn-success">Volume</button>
+            <button type="button" class="btn btn-danger" onClick={()=>{tipo(0)}}>Comprimento</button>
+            <button type="button" class="btn btn-success" onClick={()=>{tipo(1)}}>Volume</button>
+            <button type="button" class="btn btn-primary" onClick={()=>{tipo(2)}}>Temperatura</button>
           </div>
-          <Comprimento />
+          {
+            type===0&&<Comprimento />
+          }{
+            type===1&& <Volume />
+          }
+          {
+            type===2&& <Temperatura />
+          }
+          
         </div>
     </div>
   )
