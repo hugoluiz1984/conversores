@@ -7,50 +7,79 @@ import React, {useState} from 'react';
   
   const [text, setText] = React.useState('');
   const pattern = /^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
+  const sentence = /^[!;:.?[\n][ ]]*$/
+  const sent = ['!',';',':','.','?','\n',' ',]
+  const sentences = ['!','.','?','\n']
   
 
   //console.log(text)
 
   function capitalize() {
-    let newStr = []
     if (text !=''){
-      const letras = text.split('\n');
-      let palavras = letras.join(' ');
-      //console.log(palavras)
-      const arr = letras
-
-      for (let i = 0; i < arr.length; i++){// verifica todas as palavras
-        if(arr[i].charAt(0)=='\n'){newStr.push('\n')}
-        if(pattern.test(arr[i].charAt(0))){ //verificar o primeiro caractere se é número ou simbolo 
-          newStr.push(arr[i].charAt(0)+arr[i].substring(1).toLowerCase());
-        } else { //verificar o primeiro caractere e altera o primeiro para maiúsculo
-          newStr.push(arr[i].charAt(0).toUpperCase()+arr[i].substring(1).toLowerCase());
+      let frase = (text.substring(0).toLowerCase())
+      //console.log(frase);
+      let letras=''
+      for (let i = 0; i < frase.length; i++){// verifica todas as letras
+        //console.log(sent.indexOf(frase.charAt(i)),frase.charAt(i))
+        if(i===0){
+          letras=letras+frase.charAt(i).toUpperCase();
         }
+        else{
+          if(sentences.indexOf(frase.charAt(i))!=-1){ //verificar o caractere
+            letras=letras+frase.charAt(i);
+            //console.log(frase.charAt(i),'dentro')
+            letras=letras+frase.charAt(i+1).toUpperCase();
+            if(frase.charAt(i+1)===' '||frase.charAt(i+1)==='\n'){
+              //console.log(frase.charAt(i+1),'dentro+1')
+              //console.log(frase.charAt(i+2),'dentro+2')
+              letras=letras+frase.charAt(i+2).toUpperCase();
+              i++
+            }
+            i++;
+          } else {
+            letras=letras+frase.charAt(i);
+            //console.log(frase.charAt(i),'fora')
+          }
+        }
+        
       }
-
-      setText(newStr.join(' '));
-
+      setText(letras);
     }else {
       alert('Favor entrar com o texto');
     }
   }
 
+
   function toTitleCase() {
-    let newStr = [];
     if (text !=''){
-      const arr = text.split(' ');
-
-      for (let i = 0; i < arr.length; i++){// verifica todas as palavras
-
-        if(pattern.test(arr[i].charAt(0))){ //verificar o primeiro caractere se é número ou simbolo 
-          newStr.push(arr[i].charAt(0)+arr[i].substring(1).toLowerCase());
-        } else { //verificar o primeiro caractere e altera o primeiro para maiúsculo
-          newStr.push(arr[i].charAt(0).toUpperCase()+arr[i].substring(1).toLowerCase());
+      let frase = (text.substring(0).toLowerCase())
+      //console.log(frase);
+      let letras=''
+      for (let i = 0; i < frase.length; i++){// verifica todas as letras
+        //console.log(sent.indexOf(frase.charAt(i)),frase.charAt(i))
+        if(i===0){
+          letras=letras+frase.charAt(i).toUpperCase();
         }
+        else{
+          if(sent.indexOf(frase.charAt(i))!=-1){ //verificar o caractere
+            letras=letras+frase.charAt(i);
+            //console.log(frase.charAt(i),'dentro')
+            letras=letras+frase.charAt(i+1).toUpperCase();
+            if(frase.charAt(i+1)===' '||frase.charAt(i+1)==='\n'){
+              //console.log(frase.charAt(i+1),'dentro+1')
+              //console.log(frase.charAt(i+2),'dentro+2')
+              letras=letras+frase.charAt(i+2).toUpperCase();
+              i++
+            }
+            i++;
+          } else {
+            letras=letras+frase.charAt(i);
+            //console.log(frase.charAt(i),'fora')
+          }
+        }
+        
       }
-
-      setText(newStr.join(' '));
-
+      setText(letras);
     }else {
       alert('Favor entrar com o texto');
     }
@@ -59,27 +88,9 @@ import React, {useState} from 'react';
   function toUpper() {
 
     if (text !=''){
-      const arr = text.split(' ');
-      console.log(arr.length);
-      let newStr = []
-      
-      let letra = '';
-      for (let i = 0; i < arr.length; i++){// verifica todas as palavras
-        let newStrSolo = [];
-        for (let j = 0; j < arr[i].length; j++){
-          //console.log(pattern.test(arr[i].charAt(j)));
-          if(pattern.test(arr[i].charAt(j))){
-            newStrSolo.push(arr[i].charAt(j));
-          }else{
-            letra = arr[i].charAt(j);
-            newStrSolo.push(arr[i].charAt(j).toUpperCase());
-            //console.log(arr[i].charAt(j).toUpperCase());
-          }
-        }
-        newStr.push(newStrSolo.join(''));
-        console.log(newStr);
-      }
-      setText(newStr.join(' '));
+      let frase = (text.substring(0).toUpperCase());
+      setText(frase)
+      //setText(newStr.join(' '));
       
     }else {
       alert('Favor entrar com o texto');
@@ -88,27 +99,8 @@ import React, {useState} from 'react';
   function toLower() {
 
     if (text !=''){
-      const arr = text.split(' ');
-      console.log(arr.length);
-      let newStr = [];
-      
-      let letra = '';
-      for (let i = 0; i < arr.length; i++){// verifica todas as palavras
-        let newStrSolo = [];
-        for (let j = 0; j < arr[i].length; j++){
-          //console.log(pattern.test(arr[i].charAt(j)));
-          if(pattern.test(arr[i].charAt(j))){
-            newStrSolo.push(arr[i].charAt(j));
-          }else{
-            letra = arr[i].charAt(j);
-            newStrSolo.push(arr[i].charAt(j).toLowerCase());
-            //console.log(arr[i].charAt(j).toUpperCase());
-          }
-        }
-        newStr.push(newStrSolo.join(''));
-        console.log(newStr);
-      }
-      setText(newStr.join(' '));
+      let frase = (text.substring(0).toLowerCase());
+      setText(frase)
       
     }else {
       alert('Favor entrar com o texto');
@@ -119,7 +111,6 @@ import React, {useState} from 'react';
     if (text !=''){
       //const arr = text.split(' ');
       //console.log(arr.length);
-      let newStr = [];
       
       let letra = '';
       for (let i = 0; i < text.length; i++){// verifica todas as palavras
@@ -159,7 +150,7 @@ import React, {useState} from 'react';
   return (
     <div className='container'>
       <Head>
-        <title>Conversores</title>
+        <title>Conversores de Texto</title>
         <meta name="description" content="Generated by create next app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
