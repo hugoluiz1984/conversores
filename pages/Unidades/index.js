@@ -19,7 +19,7 @@ export default function Numeros() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <div>
-          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <div className="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="button" className={type===0?'bnt border rounded-start btn-primary':"btn rounded-start border"} onClick={()=>{tipo(0)}}>Comprimento</button>
             <button type="button" className={type===1?'bnt border btn-primary':"btn border"} onClick={()=>{tipo(1)}}>Volume</button>
             <button type="button" className={type===2?'bnt border rounded-end btn-primary':"btn rounded-end border"} onClick={()=>{tipo(2)}}>Temperatura</button>
