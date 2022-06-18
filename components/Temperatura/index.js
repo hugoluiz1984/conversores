@@ -101,7 +101,7 @@ export default function Temperatura() {
               </div>
             </div>
             <div className='row mt-2 '>
-                <p className='text-center fw-bold text-danger'>{`O resultado é ${num2}${symbol}.`}</p>
+                <p className='text-center fw-bold text-danger'>{num1!=''?  `O resultado é ${num2}${symbol}.`:''}</p>
             </div>
           </div>
     </div>

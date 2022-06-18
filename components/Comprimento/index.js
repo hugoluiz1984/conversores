@@ -56,7 +56,7 @@ export default function Comprimento() {
               </div>
             </div>
             <div className='row mt-2 '>
-                <p className='text-center fw-bold text-danger'>{num2!=0 && `O resultado é ${num2}`}</p>
+                <p className='text-center fw-bold text-danger'>{num2!=0||num2!='' && `O resultado é ${num2}`}</p>
             </div>
           </div>
     </div>
