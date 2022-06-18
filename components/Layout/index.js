@@ -3,8 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Children } from 'react'
 
+import NavBar from '../Nav'
+
 
 export default function Home({children}) {
+
   return (
     <div className='container'>
       <Head>
@@ -17,14 +20,7 @@ export default function Home({children}) {
           <svg className="bi me-2" width="40" height="32"></svg>
           <span className="fs-4">Simple Converter</span>
         </p>
-
-        <ul className="nav nav-pills">
-          <li className="nav-item"><a href="./" className="nav-link active" aria-current="page">Home</a></li>
-          <li className="nav-item"><a href="./Texto" className="nav-link">Texto</a></li>
-          <li className="nav-item"><a href="./Unidades" className="nav-link">Unidades</a></li>
-          <li className="nav-item"><a href="#" className="nav-link">FAQs</a></li>
-          <li className="nav-item"><a href="#" className="nav-link">About</a></li>
-        </ul>
+      <NavBar />
     </header>
       <main className=''>
         {children}
